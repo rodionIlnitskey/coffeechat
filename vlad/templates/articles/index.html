@@ -1,0 +1,235 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Сoffeechat{% endblock %}
+
+{% block content %}
+<script src="{% static 'js/vod.js' %}"></script>
+<style type='text/css'>
+  body {
+    background-color: #543b2d;
+    color: #ffffff;
+  }
+
+  header {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #EFDBC5;
+    margin-top: -25px;
+    margin-bottom: 10px;
+    margin-left: -10px;
+    margin-right: -7px;
+    padding-left: 50px;
+    padding-top: 14px;
+    padding-bottom: 20px;
+    display: block;
+    text-align: left;
+    box-shadow: 0 0 13px 3px rgba(0,0,0,.5);
+  }
+
+
+  .lol {
+    filter: invert(1);
+    padding-left: 160px;
+    margin-top: -70px;
+  }
+
+
+form {
+    position: fixed;
+
+    right: 50px; /* Расстояние от правого края окна браузера */
+    top: 15%;
+    width: 20%;
+    padding: 30px 50px 20px 30px;
+    border: 1px solid #543b2d;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    background: rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 0 13px 3px rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 13px 3px rgba(0,0,0,.5);
+    box-shadow: 0 0 13px 3px rgba(0,0,0,.5);
+    overflow: hidden;
+}
+
+textarea{
+    background: #543b2d;
+    width: 90%;
+    height: 110px;
+    border: 1px solid rgba(255,255,255,.6);
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    display:block;
+    font-family: 'Open Sans', sans-serif;
+    font-size:18px;
+    font-weight: 300;
+    color:#fff;
+    padding-left:25px;
+    padding-right:20px;
+    padding-top:12px;
+    margin-bottom:0px;
+    overflow:hidden;
+}
+
+input {
+    background: #543b2d;
+    width: 90%;
+    height: 48px;
+    border: 1px solid rgba(255,255,255,.4);
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    display:block;
+    font-family: 'Open Sans', sans-serif;
+    font-size:18px;
+    font-weight: 300;
+    color:#fff;
+    padding-left:20px;
+    padding-right:20px;
+    margin-bottom:20px;
+}
+input[type=submit] {
+    cursor:pointer;
+}
+input.name {
+    background: #000000;
+    padding-left:25px;
+}
+
+input.message {
+    background: #000000;
+    padding-left:25px;
+}
+::-webkit-input-placeholder {
+    color: #fff;
+}
+:-moz-placeholder{
+    color: #fff;
+}
+::-moz-placeholder {
+    color: #fff;
+}
+:-ms-input-placeholder {
+    color: #fff;
+}
+input:focus, textarea:focus {
+    background-color: #000000;
+    -moz-box-shadow: 0 0 5px 1px rgba(255,255,255,.5);
+    -webkit-box-shadow: 0 0 5px 1px rgba(255,255,255,.5);
+    box-shadow: 0 0 5px 1px rgba(255,255,255,.5);
+    overflow: hidden;
+}
+
+.btn {
+    width: 138px;
+    height: 44px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    float:right;
+    border: 1px solid #253737;
+    background: #416b68;
+    background: -webkit-gradient(linear, left top, left bottom, from(#6da5a3), to(#416b68));
+    background: -webkit-linear-gradient(top, #6da5a3, #416b68);
+    background: -moz-linear-gradient(top, #6da5a3, #416b68);
+    background: -ms-linear-gradient(top, #6da5a3, #416b68);
+    background: -o-linear-gradient(top, #6da5a3, #416b68);
+    background-image: -ms-linear-gradient(top, #6da5a3 0%, #416b68 100%);
+    padding: 10.5px 21px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: rgba(255,255,255,0.1) 0 1px 0, inset rgba(255,255,255,0.7) 0 1px 0;
+    -moz-box-shadow: rgba(255,255,255,0.1) 0 1px 0, inset rgba(255,255,255,0.7) 0 1px 0;
+    box-shadow: rgba(255,255,255,0.1) 0 1px 0, inset rgba(255,255,255,0.7) 0 1px 0;
+    text-shadow: #333333 0 1px 0;
+    color: #e1e1e1;
+}
+.btn:hover {
+    border: 1px solid #253737;
+    text-shadow: #333333 0 1px 0;
+    background: #416b68;
+    background: -webkit-gradient(linear, left top, left bottom, from(#77b2b0), to(#416b68));
+    background: -webkit-linear-gradient(top, #77b2b0, #416b68);
+    background: -moz-linear-gradient(top, #77b2b0, #416b68);
+    background: -ms-linear-gradient(top, #77b2b0, #416b68);
+    background: -o-linear-gradient(top, #77b2b0, #416b68);
+    background-image: -ms-linear-gradient(top, #77b2b0 0%, #416b68 100%);
+    color: #fff;
+ }
+.btn:active {
+    margin-top:1px;
+    text-shadow: #333333 0 -1px 0;
+    border: 1px solid #333333;
+    background: #ffCC00;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffCC00), to(#ff6600));
+    background: -webkit-linear-gradient(top, #ffcc00, #ff6600);
+    background: -moz-linear-gradient(top, #ffcc00, #ff6600);
+    background: -ms-linear-gradient(top, #ffcc00, #ff6600);
+    background: -o-linear-gradient(top, #ffcc00, #ff6600);
+    background-image: -ms-linear-gradient(top, #ffcc00 0%, #ff6600 100%);
+    color: #fff;
+    -webkit-box-shadow: rgba(255,255,255,0) 0 1px 0, inset rgba(255,255,255,0.7) 0 1px 0;
+    -moz-box-shadow: rgba(255,255,255,0) 0 1px 0, inset rgba(255,255,255,0.7) 0 1px 0;
+    box-shadow: rgba(255,255,255,0) 0 1px 0, inset rgba(255,255,255,0.7) 0 1px 0;
+    outline: none;
+}
+
+  .mema {
+    color: #00ffff;
+    margin-left: 30px;
+  }
+
+  .teta {
+    margin-left: 34px;
+  }
+</style>
+
+<header>
+    <div class="kek">
+        <h1>Coffeechat</h1>
+    </div>
+    <div class="lol">
+        <img src="https://cdn.pixabay.com/photo/2015/06/10/13/32/cup-804824__340.png" width="50" height="45" alt="">
+    </div>
+</header>
+
+{% if latest_comments_list %}
+
+    {% for c in latest_comments_list %}
+        <p>
+            <div class="mema">
+                <strong>{{c.author_name}}</strong>
+            </div>
+            <div class="teta">
+                <p>{{c.comment_text}}</p>
+            </div>
+        </p>
+    {% endfor %}
+
+{% else %}
+<div class="trumpmygob">
+  Никто пока не решился оставить комментарий
+</div>
+
+{% endif %}
+
+
+<form action="{% url 'articles:leave_comment' %}" method="POST">
+    {% csrf_token %}
+    <input type="text" required placeholder="Your name" name="name"><br>
+    <textarea name="text" required="" placeholder="Text" cols="30" rows="10"></textarea><br>
+    <button type="submit">Comment</button>
+
+</form>
+
+{% endblock %}
