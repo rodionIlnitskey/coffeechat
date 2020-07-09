@@ -27,7 +27,7 @@ SECRET_KEY = '&@%n)p88v#ih0#9&00t-uaih!hgr@$9_kpff74q54&#eb2_#iu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['157.245.138.76', 'localhost', '127.0.0.1', 'testserver']
 
 
 # Application definition
@@ -80,8 +80,12 @@ WSGI_APPLICATION = 'vlad.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'rodion_prod',
+        'USER': 'rodion',
+        'PASSWORD': 'Rwt6qg2a33',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
