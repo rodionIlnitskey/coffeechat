@@ -80,12 +80,8 @@ WSGI_APPLICATION = 'vlad.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'rodion_prod',
-        'USER': 'rodion',
-        'PASSWORD': 'Rwt6qg2a33',
-        'HOST': 'localhost',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase',
     }
 }
 
@@ -122,7 +118,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+MEDIA_ROOT = 'home/django/coffeechat/media'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
